@@ -1,0 +1,93 @@
+body {
+    background: #9C835F;
+}
+
+#navbar-text.nav-link {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+
+    color: #F9B23D;
+}
+
+#navbar-img.nav-link img {
+    width: 50px;
+}
+
+#mains .col-md-4 img.img-fluid {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+#mains .col-md-12 img.img-fluid {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+#mains .img-fluid {
+    padding: 1rem;
+    background: none;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#mains .img-fluid.active {
+    padding: 1rem;
+    background-color: #C4C4C4;
+    border-radius: 10px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#mains h2 {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 196px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #BD0000;
+}
+
+#mains h2.active {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+
+    background: #4C9654;
+    border-radius: 10px;
+    transform: rotate(-28.87deg);
+}
+
+#mains h2.active.draw {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 52px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+    color: #FFFFFF;
+
+    background: #035B0C;
+    border-radius: 10px;
+    transform: rotate(-28.87deg);
+}

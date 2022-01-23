@@ -1,0 +1,1088 @@
+{
+	"info": {
+		"_postman_id": "f51edca3-ee8b-4af2-a9da-e543d1c7cb69",
+		"name": "Challange Chapter 5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Score",
+			"item": [
+				{
+					"name": "Add Score",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "default"
+								},
+								{
+									"key": "created_at",
+									"value": "2022-01-22",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}score",
+							"host": [
+								"{{url}}score"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "default"
+										},
+										{
+											"key": "created_at",
+											"value": "{{today}}",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8833/api/v1/score",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8833",
+									"path": [
+										"api",
+										"v1",
+										"score"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Score Successfully Stored!\",\n    \"result\": {\n        \"id\": 5,\n        \"user_id\": \"1\",\n        \"status\": \"1\",\n        \"created_at\": \"2022-01-22\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show Score",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}score?user_id=1&status=0",
+							"host": [
+								"{{url}}score"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "status",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Show All Score",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8833/api/v1/score",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8833",
+									"path": [
+										"api",
+										"v1",
+										"score"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"result\": [\r\n        {\r\n            \"id\": 1,\r\n            \"user_id\": \"1\",\r\n            \"status\": \"1\",\r\n            \"created_at\": \"2022-01-22\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"user_id\": \"1\",\r\n            \"status\": \"1\",\r\n            \"created_at\": \"2022-01-22\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"user_id\": \"1\",\r\n            \"status\": \"1\",\r\n            \"created_at\": \"2022-01-22\"\r\n        },\r\n        {\r\n            \"id\": 4,\r\n            \"user_id\": \"1\",\r\n            \"status\": \"1\",\r\n            \"created_at\": \"2022-01-22\"\r\n        },\r\n        {\r\n            \"id\": 5,\r\n            \"user_id\": \"1\",\r\n            \"status\": \"1\",\r\n            \"created_at\": \"2022-01-22\"\r\n        }\r\n    ]\r\n}"
+						},
+						{
+							"name": "Show Filter Score",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8833/api/v1/score?user_id=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8833",
+									"path": [
+										"api",
+										"v1",
+										"score"
+									],
+									"query": [
+										{
+											"key": "user_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"result\": {\r\n        \"id\": 1,\r\n        \"user_id\": \"1\",\r\n        \"status\": \"1\",\r\n        \"created_at\": \"2022-01-22\"\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit Score",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "user_id",
+									"value": "20",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}score",
+							"host": [
+								"{{url}}score"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "default"
+										},
+										{
+											"key": "user_id",
+											"value": "20",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8833/api/v1/score",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8833",
+									"path": [
+										"api",
+										"v1",
+										"score"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7c-P1aME12bBQhT/r2XaQ/3KXVihcw\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3A9uweujg04hwLYthLEUjJE98NG5BUteDB.qQ5frV5Y98QsxQmbQAV%2BsCS6vkpJkszSm613RZf8L6E; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jan 2022 20:16:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Score Successfully Updated!\",\n    \"result\": {\n        \"id\": 2,\n        \"user_id\": \"20\",\n        \"status\": \"1\",\n        \"created_at\": \"2022-01-22\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Score",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}score",
+							"host": [
+								"{{url}}score"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Score",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "5",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8833/api/v1/score",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8833",
+									"path": [
+										"api",
+										"v1",
+										"score"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"40-u750Y4d9PJZnaXhTB+wyPgNUm/8\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3An-t-vjQb3tAO_DTk90OsyfCNDq_f6H_o.UKPhdElsX%2B2pLQiNdGY2mvvzux3bRIOPmVag1B32wWI; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 21 Jan 2022 20:21:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Score Successfully Updated!\",\n    \"result\": []\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}user",
+									"host": [
+										"{{url}}user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "339"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"153-u/yd/3yZWpB7VNmKCEkdViaZ4lU\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AteVAZrOKavAoHSUeiRCYHf_8sm0ODq02.iB6N7%2FP0FZN%2F6wFMIAWEUWY5wQ8Yg7pkoNDbaVA%2BTHo; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 04:02:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Data showed!\",\n    \"result\": [\n        {\n            \"id\": 1,\n            \"username\": \"candra\",\n            \"password\": \"$2b$10$kYCIEl4y6PhKahrkRiC1ieymwBwlkmsQ0PjZY2SE6kpmJHTjosfy2\",\n            \"gender\": \"male\",\n            \"created_at\": \"2020-01-22\"\n        },\n        {\n            \"id\": 2,\n            \"username\": \"candra2\",\n            \"password\": \"$2b$10$xaoFOk3/kgKPlNQ1Wb.aN.4LSXjLWgpNHCiJuGgEze9dkRtR3pxwu\",\n            \"gender\": \"male\",\n            \"created_at\": \"2020-01-22\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "candra2",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "default"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "default"
+								},
+								{
+									"key": "created_at",
+									"value": "2020-01-22",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "candra2",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "default"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "default"
+										},
+										{
+											"key": "created_at",
+											"value": "2020-01-22",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user",
+									"host": [
+										"{{url}}user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cd-hcSXsKbxNZYPtg0f/H+gVUjtwYM\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AZojX7ewTnhSMMh-J5yOv4tQVJ0zULHgv.5sw%2Ft%2B9OUj4fNWEaPv0E5UjOc%2Fq9o6bYSXqwiyjDP8c; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 04:02:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"User Successfully Stored!\",\n    \"result\": {\n        \"id\": 2,\n        \"username\": \"candra2\",\n        \"password\": \"$2b$10$xaoFOk3/kgKPlNQ1Wb.aN.4LSXjLWgpNHCiJuGgEze9dkRtR3pxwu\",\n        \"gender\": \"male\",\n        \"created_at\": \"2020-01-22\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "default"
+								},
+								{
+									"key": "gender",
+									"value": "female",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "default"
+								},
+								{
+									"key": "username",
+									"value": "cacaca",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "default"
+										},
+										{
+											"key": "gender",
+											"value": "female",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user",
+									"host": [
+										"{{url}}user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-P+aWSXvhYhn6xY7WdmVDpHo7UyM\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AjH4ExkkURK-HB3woxDjYzb3uPwYhIddF.VqvyVdCWv6fB0Wd5jqaxJXslr0BUph7j%2F5%2BVvzhntUU; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 04:06:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"user Successfully Updated!\",\n    \"result\": {\n        \"id\": 2,\n        \"username\": \"candra2\",\n        \"password\": \"$2b$10$sHyLz5n29mBHUQHqwzFMHeY3zxgCh.qyh61pdU7CHoUJLx2nRy.Hi\",\n        \"gender\": \"female\",\n        \"created_at\": \"2020-01-22\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}user",
+							"host": [
+								"{{url}}user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "id",
+											"value": "2",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}user",
+									"host": [
+										"{{url}}user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-oo2T1ZjP1+qicNSY13UWAUNipsI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 04:07:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"User Successfully Updated!\",\n    \"result\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "cacaca",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}login",
+							"host": [
+								"{{url}}login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "cacaca",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}login",
+									"host": [
+										"{{url}}login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33-N2Y3eVqs9qnbiuhrRgh2tc2uu2A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 04:45:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Login!\",\n    \"result\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "candra6",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "default"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}register",
+							"host": [
+								"{{url}}register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "candra6",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "default"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register",
+									"host": [
+										"{{url}}register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d0-4eWGExIfZQ/rjSr7u78ejRdRJOc\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3AZVqTU515vsPjUIRr79BUXCTILcPv_juf.Pa13Rt8a7fbPm8WjFcQ8OzJXYPiuYusGVLZb4lkFUd4; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 05:04:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Register Success!\",\n    \"result\": {\n        \"id\": 10,\n        \"username\": \"candra6\",\n        \"password\": \"$2b$10$VfNIpXsZEGoP5WEN/RkhYOFNrjYGn0F2Uto0c/gJMHF4gcsQ8X2R2\",\n        \"gender\": \"\",\n        \"created_at\": \"2022-01-22T05:04:21.800Z\"\n    }\n}"
+						},
+						{
+							"name": "Register Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "candra6",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "default"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}register",
+									"host": [
+										"{{url}}register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-3yWd/GInsAUsNguGP7NBVPXK2pM\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3Ab1f0vLtO0hmfwIdPwFtHAPpUfyMl-YEN.ZlRpPw%2FRfgmJTDyVDy%2BCS3%2BLspRe%2B86rqcjuNN0RsO4; Path=/; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 22 Jan 2022 05:04:42 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"username exist!\",\n    \"result\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8833/",
+			"type": "default"
+		},
+		{
+			"key": "api",
+			"value": "api/v1/",
+			"type": "default"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:8833/api/v1/",
+			"type": "default"
+		}
+	]
+}
