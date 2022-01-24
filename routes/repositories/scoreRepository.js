@@ -42,32 +42,7 @@ score.get('/', (req, res) => {
 });
 
 score.get('/leaderboard', (req, res) => {
-    const scores = fs.readFileSync(scoreRepository, 'utf-8');
-    const users = fs.readFileSync(userRepository, 'utf-8');
-    const data = JSON.parse(scores);
-
-    var result = data;
-
-    if(req.query.user_id){
-        var user_id = req.query.user_id;
-        result = data.filter((item) => item.user_id == user_id);
-    }
-
-    if(req.query.id){
-        var id = req.query.id;
-        result = data.filter((item) => item.id == id);
-    }
-
-    if(req.query.status){
-        var status = req.query.status;
-        result = data.filter((item) => item.status == status);
-    }
-
-    return res.status(200).json({
-        code: 201,
-        message: "Data showed!",
-        result: result
-    });
+    
 });
 
 score.post('/', (req, res) => {
@@ -202,5 +177,54 @@ var stored = function(req, res){
     return ret;
 }
 
+var topScore = function(req, res){
+    const scores = fs.readFileSync(scoreRepository, 'utf-8');
+    const users = fs.readFileSync(userRepository, 'utf-8');
+    const data = JSON.parse(scores);
+    const dataUser = JSON.parse(users);
+
+    for (var key in dataUser){
+
+        var win = data.filter((item) => item.user_id == dataUser[key].id && item.status == 1);
+        var lose = data.filter((item) => item.user_id == dataUser[key].id && item.status == 0);
+        var draw = data.filter((item) => item.user_id == dataUser[key].id && item.status == 2);
+        var total = data.filter((item) => item.user_id == dataUser[key].id);
+        var win_percent = win.length * 100 / total.length;
+        var lose_percent = lose.length * 100 / total.length;
+        var draw_percent = draw.length * 100 / total.length;
+
+        dataUser[key] = {
+            'user_id' : dataUser[key].user_id,
+            'username' : dataUser[key].username,
+            'gender' : dataUser[key].gender ? dataUser[key].gender : "-",
+            'win' : win.length,
+            'win_percent' : win_percent,
+            'lose' : lose.length,
+            'lose_percent' : lose_percent,
+            'draw' : draw.length,
+            'draw_percent' : draw_percent,
+            'total' : total.length,
+        };
+
+    }
+
+    dataUser.sort((a, b) => {
+        if(a.win === b.win) {
+          return b.win_percent - a.win_percent;
+        } else {
+          return b.win - a.win;
+        }
+    });
+
+    var ret = {
+        code: 200,
+        message: "Data showed!",
+        result: dataUser
+    };
+
+    return ret;
+}
+
 module.exports = score;
 module.exports.stored = stored;
+module.exports.topScore = topScore;

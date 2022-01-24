@@ -29,7 +29,7 @@
   },
   {
     "id": 5,
-    "username": "candra4",
+    "username": "nita",
     "password": "$2b$10$JWxYQqUmUWxYsspMy7.gqukG3UiUTIAqFXpnZLcWodLPbqnf864ba",
     "gender": "",
     "created_at": "2022-01-22T04:57:03.249Z"
@@ -40,20 +40,6 @@
     "password": "$2b$10$Y6jHFeY/dedMIcYylG3.auHvjIY9MnuJgu4Q4FZmfsd175AMn95Um",
     "gender": "",
     "created_at": "2022-01-22T05:00:19.258Z"
-  },
-  {
-    "id": 8,
-    "username": "candra5",
-    "password": "$2b$10$QqtOVnRiE83f5lxv640Ab.sxoi9U5u6x0GAPCwJKWR4XLabW7N4om",
-    "gender": "",
-    "created_at": "2022-01-22T05:00:43.814Z"
-  },
-  {
-    "id": 9,
-    "username": "candra5",
-    "password": "$2b$10$uqDnFs6cxd1jQ1k6YoqQYO2lyqEPuUzRvM.wN9mOUl2RTt47lnp3G",
-    "gender": "",
-    "created_at": "2022-01-22T05:01:23.348Z"
   },
   {
     "id": 10,
@@ -68,5 +54,11 @@
     "password": "$2b$10$xJcUZGxvZx970c8Uxc5b0uiQ12KcoB3tA3/8Fc1pClyNaZilfLfEm",
     "gender": "male",
     "created_at": "2022-01-22T05:49:18.564Z"
+  },
+  {
+    "id": 12,
+    "username": "nitasofi",
+    "password": "$2b$10$vbv9HiP/uCWGEfKDDYA4Ru5w3dpX5IK57XDi/Fs1SPiJexfoFbkGG",
+    "created_at": "2022-01-24T17:25:32.947Z"
   }
 ]

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://pbs.twimg.com/profile_images/1074422305281892352/RUeRc0W-.jpg">
+    <title>Rock Paper & Scissors</title>
+    <link href="/ch4/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/ch4/vendor/fotawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/ch4/vendor/fotawesome/css/brands.css" rel="stylesheet">
+    <link href="/ch4/vendor/fotawesome/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.css">
+    <link href="/ch4/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <span class="fas fa-chevron-left"></span>
+            </a>
+            <button class="navbar-toggler" style="border: 0;" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <a class="nav-link active" id="navbar-img" aria-current="page" href="#"><img src="/ch4/img/logo.png"
+                        alt=""></a>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item d-block">
+                        <a class="nav-link active" id="navbar-img" aria-current="page" href="#"><img
+                                src="/ch4/img/logo.png" alt=""></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="navbar-text" href="#">TOP SCORE LEADERBOARDS</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container" id="mains">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Win/Rate</th>
+                    <th scope="col">Lose/Rate</th>
+                    <th scope="col">Draw/Rate</th>
+                    <th scope="col">Total Game</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < data.result.length; i++) { %>
+                    <tr>
+                        <th scope="row"><%= i+1  %> </th>
+                        <th scope="row"><%= data.result[i].username %> </th>
+                        <th scope="row"><%= data.result[i].gender %> </th>
+                        <th scope="row"><%= data.result[i].win %> / <%= data.result[i].win_percent %></th>
+                        <th scope="row"><%= data.result[i].lose %> / <%= data.result[i].lose_percent %></th>
+                        <th scope="row"><%= data.result[i].draw %> / <%= data.result[i].draw_percent %></th>
+                        <th scope="row"><%= data.result[i].total %></th>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+    <script src="/ch4/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"></script>
+    <script>
+    </script>
+    
+</body>
+</html>

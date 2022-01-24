@@ -24,4 +24,15 @@ router.post('/save', function(req, res, next) {
   }
 });
 
+router.get('/top-score', function(req, res, next) {
+  var dataScore = scoreRepository.topScore(req, res);
+
+  if(dataScore.code == 200){
+    res.render('game-score', {
+      data: dataScore,
+      user: Session
+    });
+  }
+});
+
 module.exports = router;

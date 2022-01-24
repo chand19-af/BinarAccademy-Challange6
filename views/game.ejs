@@ -18,7 +18,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(0, 0, 0, 0);">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
                 <span class="fas fa-chevron-left"></span>
             </a>
             <button class="navbar-toggler" style="border: 0;" type="button" data-bs-toggle="collapse"
@@ -97,72 +97,102 @@
     <script src="/ch4/js/main.js"></script>
     <script>
         function saveGameScore(name){
-            if(getUrlParameter('game') != 'computer'){
-                if(name == "player2"){
-                    var delayInMilliseconds = 3000; //1 second
-                    setTimeout(function() {
-                    }, delayInMilliseconds);
-                    console.log(document.getElementById('status-score').innerHTML)
-                    var status;
-                    if(document.getElementById('status-score').innerHTML == 'Player 1 win' || document.getElementById('status-score').innerHTML == 'PLAYER 1 WIN'){
-                        status = 1;
-                        $.ajax({
-                            url: "<%=baseUrl%>game/save",
-                            type: "post",
-                            data: JSON.stringify({
-                                'user_id': "<%=user.session[0].user_id%>",
-                                'status': status,
-                                'created_at': Date(Date.now)
-                            }),
-                            contentType: "application/json"
-                        });
-                    } else{
-                        status = 0;
-                        $.ajax({
-                            url: "<%=baseUrl%>game/save",
-                            type: "post",
-                            data: JSON.stringify({
-                                'user_id': "<%=user.session[0].user_id%>",
-                                'status': status,
-                                'created_at': Date(Date.now)
-                            }),
-                            contentType: "application/json"
-                        });
+            setTimeout(function () {
+                if(getUrlParameter('game') != 'computer'){
+                    if(name == "player2"){
+                        var delayInMilliseconds = 3000; //1 second
+                        setTimeout(function() {
+                        }, delayInMilliseconds);
+                        console.log(document.getElementById('status-score').innerHTML)
+                        var status;
+                        if(document.getElementById('status-score').innerHTML == 'Player 1 win' || document.getElementById('status-score').innerHTML == 'PLAYER 1 WIN'){
+                            status = 1;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': status,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        } 
+                        else if(document.getElementById('status-score').innerHTML == 'DRAW' || document.getElementById('status-score').innerHTML == 'draw'){
+                            status = 2;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': status,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        }
+                        else{
+                            status = 0;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': status,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        }
+                    }
+                } else{
+                    if(name == "player1"){
+                        var delayInMilliseconds = 3000; //1 second
+                        setTimeout(function() {
+                        }, delayInMilliseconds);
+                        var statusCode;
+                        if(document.getElementById('status-score').innerHTML == 'Player 1 win' || document.getElementById('status-score').innerHTML == 'PLAYER 1 WIN'){
+                            statusCode = 1;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': statusCode,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        }
+                        else if(document.getElementById('status-score').innerHTML == 'DRAW' || document.getElementById('status-score').innerHTML == 'draw'){
+                            status = 2;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': status,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        } 
+                        else {
+                            statusCode = 0;
+                            $.ajax({
+                                url: "<%=baseUrl%>game/save",
+                                type: "post",
+                                data: JSON.stringify({
+                                    'user_id': "<%=user.session[0].user_id%>",
+                                    'status': statusCode,
+                                    'created_at': Date(Date.now)
+                                }),
+                                contentType: "application/json"
+                            });
+                        }
                     }
                 }
-            } else{
-                if(name == "player1"){
-                    var delayInMilliseconds = 3000; //1 second
-                    setTimeout(function() {
-                    }, delayInMilliseconds);
-                    var statusCode;
-                    if(document.getElementById('status-score').innerHTML == 'Player 1 win' || document.getElementById('status-score').innerHTML == 'PLAYER 1 WIN'){
-                        statusCode = 1;
-                        $.ajax({
-                            url: "<%=baseUrl%>game/save",
-                            type: "post",
-                            data: JSON.stringify({
-                                'user_id': "<%=user.session[0].user_id%>",
-                                'status': statusCode,
-                                'created_at': Date(Date.now)
-                            }),
-                            contentType: "application/json"
-                        });
-                    } else {
-                        statusCode = 0;
-                        $.ajax({
-                            url: "<%=baseUrl%>game/save",
-                            type: "post",
-                            data: JSON.stringify({
-                                'user_id': "<%=user.session[0].user_id%>",
-                                'status': statusCode,
-                                'created_at': Date(Date.now)
-                            }),
-                            contentType: "application/json"
-                        });
-                    }
-                }
-            }
+            },3000);
         }
         function sleep(milliseconds) {
             const date = Date.now();

@@ -16,6 +16,10 @@ router.get('/login', function(req, res, next) {
     res.render('login');
 });
 
+router.get('/register', function(req, res, next) {
+    res.render('register');
+});
+
 router.get('/logout', function(req, res, next) {
     Session.remove();
 
@@ -24,6 +28,32 @@ router.get('/logout', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
     var check = auth.login(req, res, next);
+
+    if(check.code == '200'){
+        req.session.user = check.result;
+        req.session.isLoggedIn = true;
+
+        var data = {
+            "id" : bcrypt.hashSync("password", salt),
+            "user_id" : check.result.id,
+            "username" : check.result.username,
+            "gender" : check.result.gender
+        };
+        
+        Session.stored(data);
+
+        res.redirect('/');
+
+    } else {
+        req.session.isLoggedIn = false;
+
+        res.redirect('/login');
+
+    }
+});
+
+router.post('/register', function(req, res, next) {
+    var check = auth.register(req, res, next);
 
     if(check.code == '200'){
         req.session.user = check.result;
