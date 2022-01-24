@@ -1,16 +1,17 @@
 require('dotenv').config();
+const swal = require('sweetalert');
 
-var path = require('path');
-var { dirname } = require('path');
+const path = require('path');
+const { dirname } = require('path');
 
-var express = require('express');
-var auth = require(path.join(dirname(require.main.path) + process.env.REPOSITORY, 'authRepository'));
-var bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
+const express = require('express');
+const auth = require(path.join(dirname(require.main.path) + process.env.REPOSITORY, 'authRepository'));
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 
-var router = express.Router();
-var Auth = require(path.join(dirname(require.main.path), process.env.MIDDLEWARE));
-var Session = require(path.join(dirname(require.main.path), process.env.SESSION));
+const router = express.Router();
+const Auth = require(path.join(dirname(require.main.path), process.env.MIDDLEWARE));
+const Session = require(path.join(dirname(require.main.path), process.env.SESSION));
 
 router.get('/login', function(req, res, next) {
     res.render('login');
@@ -47,7 +48,9 @@ router.post('/login', function(req, res, next) {
     } else {
         req.session.isLoggedIn = false;
 
-        res.redirect('/login');
+        res.render('/login', {
+            message : check.message
+        });
 
     }
 });
@@ -73,7 +76,7 @@ router.post('/register', function(req, res, next) {
     } else {
         req.session.isLoggedIn = false;
 
-        res.redirect('/login');
+        res.redirect('/register');
 
     }
 });

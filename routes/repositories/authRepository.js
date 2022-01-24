@@ -2,11 +2,11 @@ require('dotenv').config();
 
 const express = require("express");
 const fs = require('fs');
-var path = require('path');
-var { dirname } = require('path');
-var { transformer } = require('express-transformer');
-var bcrypt = require('bcrypt');
-var salt = bcrypt.genSaltSync(10);
+const path = require('path');
+const { dirname } = require('path');
+const { transformer } = require('express-transformer');
+const bcrypt = require('bcrypt');
+const salt = bcrypt.genSaltSync(10);
 
 const userRepository = process.env.DATABASE + '/users.json';
 const auth = express.Router();
@@ -41,39 +41,39 @@ var login = function login(req, res, next = null){
 
     if(!username){
         req.session.isLoggedIn = false;
-        return res.status(400).json({
+        return {
             code: 400,
             message: "attribute username not found!",
             result: []
-        });
+        };
     }
 
     if(!password){
         req.session.isLoggedIn = false;
-        return res.status(400).json({
+        return {
             code: 400,
             message: "attribute password not found!",
             result: []
-        });
+        };
     }
 
     if(!data){
         req.session.isLoggedIn = false;
-        return res.status(400).json({
+        return {
             code: 400,
             message: "username doesnt exist!",
             result: []
-        });
+        };
     } else {
         check = bcrypt.compareSync(password, data.password);
     }
 
     if(!check){
-        return res.status(400).json({
+        return {
             code: 400,
             message: "wrong password!",
             result: []
-        });
+        };
     }
 
     req.session.user = data;

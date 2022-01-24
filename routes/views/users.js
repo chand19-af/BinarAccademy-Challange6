@@ -1,7 +1,6 @@
-var express = require('express');
-var router = express.Router();
-var Auth = require('../../middleware/Auth');
-var session_store;
+const express = require('express');
+const router = express.Router();
+const Auth = require('../../middleware/Auth');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

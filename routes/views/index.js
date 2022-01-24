@@ -1,14 +1,13 @@
 require('dotenv').config();
 
-var path = require('path');
-var { dirname } = require('path');
+const path = require('path');
+const { dirname } = require('path');
 
-var express = require('express');
+const express = require('express');
 
-var router = express.Router();
-var Auth = require(path.join(dirname(require.main.path), process.env.MIDDLEWARE));
-var Session = require(path.join(dirname(require.main.path), process.env.SESSION));
-var session_store;
+const router = express.Router();
+const Auth = require(path.join(dirname(require.main.path), process.env.MIDDLEWARE));
+const Session = require(path.join(dirname(require.main.path), process.env.SESSION));
 
 router.get('/', function(req, res, next) {
   res.render('index', {

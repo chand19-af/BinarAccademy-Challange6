@@ -60,5 +60,11 @@
     "username": "nitasofi",
     "password": "$2b$10$vbv9HiP/uCWGEfKDDYA4Ru5w3dpX5IK57XDi/Fs1SPiJexfoFbkGG",
     "created_at": "2022-01-24T17:25:32.947Z"
+  },
+  {
+    "id": 13,
+    "username": "nitasofisasas",
+    "password": "$2b$10$XlJqX5AjfGhsRhHDMi9XUurxwL4/fxcoTvty.U7VeRcS.lZJuMntG",
+    "created_at": "2022-01-24T18:06:29.491Z"
   }
 ]

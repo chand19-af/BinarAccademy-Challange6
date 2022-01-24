@@ -19,6 +19,7 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "node-json-filter": "^1.1.0",
-    "pbkdf2-password": "^1.2.1"
+    "pbkdf2-password": "^1.2.1",
+    "sweetalert": "^2.1.2"
   }
 }

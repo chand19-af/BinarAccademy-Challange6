@@ -1,26 +1,26 @@
 require('dotenv').config()
 
-var createError = require('http-errors');
-var path = require('path');
+const createError = require('http-errors');
+const path = require('path');
 
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-var flash = require('express-flash');
-var transformer = require('express-transformer');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const flash = require('express-flash');
+const transformer = require('express-transformer');
 
-var indexViewRouter = require(path.join(__dirname + process.env.VIEWS, 'index'));
-var usersViewRouter = require(path.join(__dirname + process.env.VIEWS, 'users'));
-var gameViewRouter = require(path.join(__dirname + process.env.VIEWS, 'game'));
-var authViewRouter = require(path.join(__dirname + process.env.VIEWS, 'auth'));
+const indexViewRouter = require(path.join(__dirname + process.env.VIEWS, 'index'));
+const usersViewRouter = require(path.join(__dirname + process.env.VIEWS, 'users'));
+const gameViewRouter = require(path.join(__dirname + process.env.VIEWS, 'game'));
+const authViewRouter = require(path.join(__dirname + process.env.VIEWS, 'auth'));
 
-var scoreRepository = require(path.join(__dirname + process.env.REPOSITORY, 'scoreRepository'));
-var userRepository = require(path.join(__dirname + process.env.REPOSITORY, 'userRepository'));
-var authRepository = require(path.join(__dirname + process.env.REPOSITORY, 'authRepository'));
+const scoreRepository = require(path.join(__dirname + process.env.REPOSITORY, 'scoreRepository'));
+const userRepository = require(path.join(__dirname + process.env.REPOSITORY, 'userRepository'));
+const authRepository = require(path.join(__dirname + process.env.REPOSITORY, 'authRepository'));
 
-var app = express();
-var api = express.Router();
+const app = express();
+const api = express.Router();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

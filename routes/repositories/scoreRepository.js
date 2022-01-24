@@ -2,9 +2,9 @@ require('dotenv').config();
 
 const express = require("express");
 const fs = require('fs');
-var path = require('path');
-var { dirname } = require('path');
-var { transformer } = require('express-transformer');
+const path = require('path');
+const { dirname } = require('path');
+const { transformer } = require('express-transformer');
 
 const scoreRepository = process.env.DATABASE + 'scores.json';
 const userRepository = process.env.DATABASE + 'users.json';
